@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tablero de Pobreza en México (2008-2018)</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawCharts);
+
+      function drawCharts() {
+        // Gráfico 1: Evolución pobreza
+        const data1 = google.visualization.arrayToDataTable([
+          ['Año', 'Pobreza (%)', 'Pobreza Extrema (%)'],
+          ['2008', 44.4, 11.0],
+          ['2018', 41.9, 7.4]
+        ]);
+        const chart1 = new google.visualization.LineChart(document.getElementById('chart1'));
+        chart1.draw(data1, {title: 'Evolución de la pobreza 2008-2018'});
+
+        // Gráfico 2: Zonas geográficas
+        const data2 = google.visualization.arrayToDataTable([
+          ['Zona', 'Pobreza (%)'],
+          ['Rural', 55.3],
+          ['Urbana', 37.6]
+        ]);
+        const chart2 = new google.visualization.ColumnChart(document.getElementById('chart2'));
+        chart2.draw(data2, {title: 'Pobreza por zona geográfica (2018)'});
+
+        // Gráfico 3: Entidades federativas
+        const data3 = google.visualization.arrayToDataTable([
+          ['Entidad', '2008 (%)', '2018 (%)'],
+          ['Chiapas', 77.0, 76.4],
+          ['Guerrero', 68.4, 66.5],
+          ['Oaxaca', 61.8, 66.4],
+          ['Veracruz', 51.2, 61.8],
+        ]);
+        const chart3 = new google.visualization.BarChart(document.getElementById('chart3'));
+        chart3.draw(data3, {title: 'Cambio en pobreza por entidad federativa'});
+
+        // Gráfico 4: Grupos sociales
+        const data4 = google.visualization.arrayToDataTable([
+          ['Grupo', 'Pobreza (%)'],
+          ['Mujeres', 42.4],
+          ['Hombres', 41.4],
+          ['Hablantes de lengua indígena', 74.9],
+          ['No hablantes de lengua indígena', 39.4]
+        ]);
+        const chart4 = new google.visualization.PieChart(document.getElementById('chart4'));
+        chart4.draw(data4, {title: 'Distribución de pobreza por grupo social (2018)'});
+
+        // Gráfico 5: Carencias sociales
+        const data5 = google.visualization.arrayToDataTable([
+          ['Carencia', '2008 (%)', '2018 (%)'],
+          ['Rezago educativo', 21.9, 16.9],
+          ['Acceso a salud', 38.4, 16.2],
+          ['Seguridad social', 65.0, 57.3],
+          ['Calidad/espacios vivienda', 17.7, 11.1],
+          ['Servicios básicos en vivienda', 22.9, 19.8],
+          ['Acceso a alimentación', 21.7, 20.4]
+        ]);
+        const chart5 = new google.visualization.ColumnChart(document.getElementById('chart5'));
+        chart5.draw(data5, {title: 'Comparación de carencias sociales'});
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Tablero de Visualización - Pobreza en México (2008-2018)</h1>
+    <div id="chart1" style="width: 900px; height: 400px;"></div>
+    <div id="chart2" style="width: 900px; height: 400px;"></div>
+    <div id="chart3" style="width: 900px; height: 500px;"></div>
+    <div id="chart4" style="width: 900px; height: 400px;"></div>
+    <div id="chart5" style="width: 900px; height: 400px;"></div>
+  </body>
+</html>
